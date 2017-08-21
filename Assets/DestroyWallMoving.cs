@@ -22,14 +22,15 @@ public class DestroyWallMoving : MonoBehaviour {
 	void Update () {
         //Unityちゃんの位置に合わせて壁の位置を移動
         this.transform.position = new Vector3(0, transform.position.y, this.unitychan.transform.position.z - this.difference);
-		
-        //壁に当たったオブジェクトを破壊
 
 	}
 
     //トリガーモードでほかのオブジェクトに当たった場合の処理
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
-        Destroy(other.gameObject);
+        if (other.gameObject.tag == "TrafficConeTag" || other.gameObject.tag == "CarTag" || other.gameObject.tag == "CoinTag")
+        {
+            Destroy(other.gameObject);
+        }
     }
 }

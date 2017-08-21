@@ -8,7 +8,7 @@ public class ItemGenerator : MonoBehaviour {
     //coinPrefabを入れる
     public GameObject coinPrefab;
     //conePrefabを入れる
-    public GameObject conePrefab;
+    public GameObject TrafficConePrefab;
     //スタート地点
     private int startpos = -160;
     //ゴール地点
@@ -27,7 +27,7 @@ public class ItemGenerator : MonoBehaviour {
                 //コーンをx軸方向に１直線に配置
                 for(float j = -1;j <= 1;j += 0.4f)
                 {
-                    GameObject cone = Instantiate(conePrefab) as GameObject;
+                    GameObject cone = Instantiate(TrafficConePrefab) as GameObject;
                     cone.transform.position = new Vector3(posRange * j, cone.transform.position.y, i);
                 }
             }
